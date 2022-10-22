@@ -9,7 +9,7 @@
         @include('includes.backend.style')
         @stack('after-style')
 
-        <title>@yield('title')</title>
+        <title>@yield('title') - Admin Panel</title>
     </head>
 
     <body>
