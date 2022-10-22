@@ -19,6 +19,9 @@ class ProductRepository
             ->when(!empty($params['search']['name']), function ($query) use ($params) {
                 return $query->where('name', 'LIKE', '%' . $params['search']['name'] . '%');
             })
+            ->when(!empty($params['category_id']), function ($query) use ($params) {
+                return $query->where('category_id', $params['category_id']);
+            })
             ->when(isset($params['order']), function ($query) use ($params) {
                 return $query->orderBy('updated_at', $params['order']);
             });
@@ -28,6 +31,13 @@ class ProductRepository
         }
 
         return $products->get();
+    }
+
+    public function getBySlug($slug)
+    {
+        $product = $this->model->where('slug', $slug)->first();
+
+        return $product;
     }
 
     public function store(Product $product)

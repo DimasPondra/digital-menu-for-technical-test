@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,9 +18,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index'])->name('home-page');
+Route::get('categories/{category}/menu', [HomeController::class, 'categoryMenu'])->name('category-menu-page');
+Route::get('categories/{category}/menu/{slug}', [HomeController::class, 'detailMenu'])->name('detail-menu-page');
 
 Route::prefix('auth')->middleware('guest')->group(function () {
     Route::get('login', [AuthController::class, 'loginPage'])->name('login-page');
