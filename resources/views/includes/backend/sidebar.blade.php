@@ -1,5 +1,5 @@
 <aside class="sidebar">
-    <a href="#" class="sidebar-logo">
+    <a href="{{ route('admin.dashboard') }}" class="sidebar-logo">
         <div class="d-flex justify-content-start align-items-center">
             <img src="{{ asset('backend/images/icons/logo.svg') }}" alt="icon">
             <span>AdminPanel</span>
@@ -20,6 +20,11 @@
     <a href="{{ route('admin.categories.index') }}" class="sidebar-item @yield('categoryPage')">
         <img src="{{ asset('backend/images/icons/receipt.svg') }}" alt="icon" width="18" height="18" class="me-3" >
         <span>Category</span>
+    </a>
+
+    <a href="{{ route('admin.products.index') }}" class="sidebar-item @yield('productPage')">
+        <img src="{{ asset('backend/images/icons/bag-frame.svg') }}" alt="icon" width="18" height="18" class="me-3" >
+        <span>Product</span>
     </a>
 
     <a href="#" class="sidebar-item">

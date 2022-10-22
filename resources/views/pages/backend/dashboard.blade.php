@@ -28,7 +28,7 @@
                         <div class="d-flex flex-column justify-content-around align-items-start employee-stat">
                             <h5 class="content-desc">Products</h5>
 
-                            <h3 class="statistics-value">23</h3>
+                            <h3 class="statistics-value">{{ $products }}</h3>
                         </div>
                     </div>
                 </div>

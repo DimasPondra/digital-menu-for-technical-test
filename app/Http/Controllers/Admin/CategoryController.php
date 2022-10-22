@@ -102,7 +102,13 @@ class CategoryController extends Controller
         try {
             DB::beginTransaction();
 
-            $category->delete();
+            if ($category->products()->exists()) {
+                return redirect()->back()->withErrors([
+                    'errors' => 'Used categories cannot be deleted'
+                ]);
+            } else {
+                $category->delete();
+            }
 
             DB::commit();
         } catch (\Throwable $th) {
