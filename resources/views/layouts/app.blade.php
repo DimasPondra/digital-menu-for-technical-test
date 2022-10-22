@@ -11,6 +11,10 @@
         a {
             text-decoration: none;
         }
+
+        .required {
+            color: red;
+        }
     </style>
 
     <title>@yield('title')</title>
@@ -29,7 +33,7 @@
                             <a class="nav-link @yield('homePage')" href="{{ route('home-page') }}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login-page') }}">Login</a>
+                            <a class="nav-link @yield('loginPage')" href="{{ route('login-page') }}">Login</a>
                         </li>
                     </ul>
                 </div>
